@@ -11,7 +11,7 @@ using namespace std;
 class TakeInput
 {
 private:
-    char fileThis[20];
+    char fileThis[21];
     int fd, fdCSV;
     fstream fout;
     char mainFolder[11] = "~/.mosync/";
@@ -71,12 +71,14 @@ public:
     }
     void DeleteTempFile()
     {
-        unlink(fileThis); // Delete the temporary file.
+        remove(fileThis); // Delete the temporary file.
     }
 };
 int main(int argc, char *argv[])
 {
     TakeInput td;
     td.ReadInput();
+    td.CloseReader();
+    //td.DeleteTempFile();   //to delete file
     return 0;
 }
