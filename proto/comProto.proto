@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message commandMessage{
+    string one = 1;
+    string two = 2;
+    string three = 3;
+    string four = 4;
+    string five = 5;
+    string id = 6;
+    string passcode = 7;
+    string getCommand = 8;
+}
+
+service commandService{
+    rpc topCommand(commandMessage) returns (commandMessage) {}
+}
