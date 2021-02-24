@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.java": "java",
+        "iostream": "cpp",
+        "iosfwd": "cpp"
+    },
+    "python.pythonPath": "/usr/bin/python"
+}

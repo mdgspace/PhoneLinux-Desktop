@@ -1,0 +1,6 @@
+user_postgres=''      
+pass_postgres=''
+host_postgres=''
+port_postgres=''
+database_name=''
+port_grpc=''
