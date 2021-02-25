@@ -50,7 +50,7 @@ class _BlackScreen extends State<BlackScreen>{
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: FlatButton(
+                child: TextButton(
                   onPressed: () {
                     // Validate will return true if the form is valid, or false if
                     // the form is invalid.
