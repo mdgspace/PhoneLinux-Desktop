@@ -15,12 +15,12 @@ class GrpcClient{
   /// gRPC client channel to send messages to the server
   ClientChannel _clientSend;
   LocalStorageService _localStorageService=locator<LocalStorageService>();
-
+  MessageIncoming messageIncoming = locator<MessageIncoming>();
   /// gRPC client channel to receive messages from the server
   ClientChannel _clientReceive;
 
   GrpcClient();
-  MessageIncoming send(MessageOutgoing message){
+  Future<MessageIncoming> send(MessageOutgoing message) async{
     if (_clientSend == null) {
       // create new client
       _clientSend = ClientChannel(
@@ -38,10 +38,16 @@ class GrpcClient{
      request.id = _localStorageService.uid;
      request.passcode = _localStorageService.pass;
     print("Superior 1");
-    grpc.commandServiceClient(_clientSend).topCommand(request).then((value) {
+    await grpc.commandServiceClient(_clientSend).topCommand(request).then((value) {
       print("Superior Superior");
       print(value.toString());
       // TODO call for success handler
+      messageIncoming.command1 = value.one;
+      messageIncoming.command2 = value.two;
+      messageIncoming.command3 = value.three;
+      messageIncoming.command4 = value.four;
+      messageIncoming.command5 = value.five;
+      return messageIncoming;
     }).catchError((e) {
       print(e.toString());
     });

@@ -5,7 +5,6 @@ class Homescreen extends StatelessWidget{
   final List<String> list = ["abc","abads"];
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Column(
         children: [
