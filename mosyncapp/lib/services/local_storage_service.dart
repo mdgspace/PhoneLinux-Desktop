@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class LocalStorageService{
   static LocalStorageService _instance;
   static SharedPreferences _preferences;
+  static const uidKey = "uid";
+  static const passKey = "pass";
 
   static Future<LocalStorageService> getInstance() async {
     _instance ??= LocalStorageService();
@@ -37,4 +39,15 @@ class LocalStorageService{
       _preferences.setStringList(key, content);
     }
   }
+
+  String get uid => _getFromDisk(uidKey);
+  set uid(String _uid) {
+    _saveToDisk(uidKey, _uid);
+  }
+
+  String get pass => _getFromDisk(passKey);
+  set pass(String _pass) {
+    _saveToDisk(passKey, _pass);
+  }
+
 }
